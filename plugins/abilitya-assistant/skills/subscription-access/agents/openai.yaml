@@ -1,0 +1,4 @@
+interface:
+  display_name: "Configure Subscription Access"
+  short_description: "Build and verify recurring membership plans"
+  default_prompt: "Use $subscription-access to configure recurring access and subscription bundles for this Abilitya network."

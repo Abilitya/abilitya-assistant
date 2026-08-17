@@ -1,0 +1,4 @@
+interface:
+  display_name: "Abilitya Assistant · Themes"
+  short_description: "Design themes for Abilitya networks"
+  default_prompt: "Use $network-theme-designer as the Abilitya Assistant theme capability to customize my staging network."

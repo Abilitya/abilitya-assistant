@@ -1,0 +1,4 @@
+interface:
+  display_name: "Abilitya Assistant · Content"
+  short_description: "Create rich Content for Abilitya networks"
+  default_prompt: "Use $content-creation as the Abilitya Assistant Content capability to create a polished network Content item."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Configure Private Access"
+  short_description: "Set up invite-only network access"
+  default_prompt: "Use $private-access to configure and verify invite-only access for this Abilitya network."

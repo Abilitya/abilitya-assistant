@@ -1,0 +1,4 @@
+interface:
+  display_name: "Configure Paywall Access"
+  short_description: "Set up and verify one-time paid network access"
+  default_prompt: "Use $paywall-access to configure and verify one-time paid access for this Abilitya network."

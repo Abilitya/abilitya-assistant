@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Network for Client"
+  short_description: "Build presentation-ready client networks"
+  default_prompt: "Use $create-network-for-client to create a presentation-ready Abilitya network for this client."

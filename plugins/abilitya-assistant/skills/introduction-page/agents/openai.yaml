@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Introduction Page"
+  short_description: "Create and verify branded intro landing pages"
+  default_prompt: "Use $introduction-page to create and verify a branded introduction page for this Abilitya network."

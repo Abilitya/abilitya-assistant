@@ -1,0 +1,4 @@
+interface:
+  display_name: "Abilitya Assistant"
+  short_description: "Manage, design, and populate Abilitya networks"
+  default_prompt: "Use $abilitya-assistant to help me manage my Abilitya staging network."
