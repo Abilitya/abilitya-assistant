@@ -37,7 +37,14 @@ Do not use search-result redirect URLs, tracking-heavy mirrors, fan logos, count
 
 For football clients, find current official home and away kits. Use the darker/home kit to inspire dark mode and the white/lighter kit for light mode when those roles fit. Extract a primary accent, supporting accent, and neutral direction without claiming exact official color codes unless a brand guide verifies them.
 
-For other clients, prefer official brand guidelines, website UI, product packaging, campaign art, or supplied references. Ensure the chosen palettes remain accessible after translating them into the complete live theme.
+For other clients, prefer official brand guidelines, website UI, product packaging, campaign art, or supplied references. Record a compact theme brief containing:
+
+- the dominant brand color and its functional role;
+- one supporting brand color with a distinct presentation role;
+- the hue and temperature that should influence nominally neutral surfaces;
+- a recognizable visual trait to preserve, such as bold red-and-white contrast, cinematic ink with comic red, pinstripe navy with a restrained red spark, or purple-and-gold warmth.
+
+Translate that brief into the complete live theme without relying on the logo to supply the brand identity. Ensure the palette remains accessible, but do not use accessibility as a reason to retreat automatically to white/gray and black/gray shells; use darker or lighter brand-derived shades where contrast requires them.
 
 ## Social video
 

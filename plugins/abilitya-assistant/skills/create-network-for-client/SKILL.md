@@ -76,8 +76,14 @@ For non-football clients, choose the app type that best matches the client's pre
 - Upload and apply an official or user-supplied logo.
 - Enable every Content type accepted by the current network customization contract. Preserve unrelated customization fields and trust the PATCH response over cached GETs.
 - Add `shopUrl`, `bookingUrl`, and `ticketUrl` only when each destination is authoritative and relevant. Do not invent or substitute aggregator URLs.
-- Create both light and dark themes from client branding. For football clubs, use home/dark and away/light kits when available. For other clients, use official brand colors and appropriate neutral families.
+- Create both light and dark themes from client branding. In this automatic flow, do not ask the user to choose a color, style, or neutral direction: infer them from the research and default to a **brand-immersive, vibrant presentation theme**, not the theme capability's conservative generic neutral treatment.
+- Build a theme brief with a primary brand color, a supporting brand color, and a brand-informed neutral direction before generating tokens. For football clubs, use home/dark and away/light kits when available. For other clients, derive the brief from official brand guidelines, website UI, packaging, campaign art, or supplied references.
+- Make the brand recognizable before the logo or Content imagery is considered. Carry brand character into large structural areas such as header surfaces, elevated surfaces, navigation states, contextual ramps, borders, and overlays—not only `surface_brand`, buttons, icons, and text accents.
+- Avoid pure-white/gray light foundations and generic near-black/gray dark foundations unless that restraint is itself central to the client's documented visual identity. Prefer accessible brand-tinted foundations and visibly related elevation steps. Do not flood every surface with the primary color; preserve hierarchy, Content legibility, and breathing room.
+- Use the supporting color selectively to create contrast and a memorable focal point. Do not collapse every brand-context token to one identical color when a coherent light-to-dark ramp would produce more depth.
+- Make light and dark modes feel like two expressions of the same brand. Each mode must deliver a presentation-worthy “wow moment”; do not treat one as the branded mode and the other as a neutral fallback.
 - Change only theme colors through the theme capability. Preserve gradients and protected semantic color families.
+- After applying the theme, inspect the rendered network at desktop width in both available modes when the UI permits switching. If the page still reads primarily as a generic white/gray or black/gray product shell with muted brand accents, revise the palette before Content population or completion.
 
 ## Original community Events
 

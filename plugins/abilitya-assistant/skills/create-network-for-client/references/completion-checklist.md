@@ -14,10 +14,15 @@ Audit the showcase before claiming it is ready.
 ## Theme
 
 - Both light and dark modes exist.
-- Client colors are recognizable and accessible.
+- Client colors are recognizable and accessible across structural surfaces, not only small accents and buttons.
+- The primary, supporting, and brand-informed neutral directions from the research brief are visibly represented.
+- Neither mode reads as a generic white/gray or black/gray shell unless that restraint is demonstrably part of the client's identity.
+- Header, navigation/elevation, contextual ramps, borders, and overlays form a coherent branded hierarchy without saturating every surface.
+- Both modes feel presentation-ready and intentionally related; neither is a neutral fallback.
 - Color-key sets match the prior complete theme.
 - Gradients and protected semantic color families remain semantically unchanged.
 - The theme write response or a non-stale verification confirms the intended brand tokens.
+- A desktop visual inspection of the rendered network passes after the write; revise once when the result lacks an immediate brand-specific “wow moment.”
 
 ## Content
 
