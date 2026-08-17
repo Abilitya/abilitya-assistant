@@ -33,6 +33,8 @@ Resolve:
 
 Do not use search-result redirect URLs, tracking-heavy mirrors, fan logos, counterfeit stores, ticket resellers, or unverified domains when an official destination exists. Remove unnecessary tracking parameters when the canonical URL is clear.
 
+When the user did not provide a logo image, select an official logo asset that is square (`1:1`) and has an opaque, non-transparent background. Verify the image dimensions and alpha/transparency before upload. Reject transparent PNGs, wide or vertical wordmarks, and assets whose apparent square shape depends on transparent padding; continue sourcing until a compliant official image is found.
+
 ## Brand and theme inputs
 
 For football clients, find current official home and away kits. Use the darker/home kit to inspire dark mode and the white/lighter kit for light mode when those roles fit. Extract a primary accent, supporting accent, and neutral direction without claiming exact official color codes unless a brand guide verifies them.
