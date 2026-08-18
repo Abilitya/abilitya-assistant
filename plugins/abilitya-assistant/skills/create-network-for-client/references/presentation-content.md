@@ -16,7 +16,7 @@
 | --- | ---: | --- |
 | Short/Story | 7 | Uploaded vertical video, varied official sources/topics |
 | Post | 3 | Original opinion, cover, substantial description, at least two `links` |
-| Announcement | 1 | Prepared and stored at least 1558×250 desktop and 512×250 mobile, concise copy, useful CTA when available |
+| Announcement | 1 | Immediately understandable desktop/mobile artwork, concise copy, useful CTA when available |
 | Link/Web | 3 | External URL, title, description, valid cover |
 | Event | 2 | Future schedule, organizer, cover, venue/link when appropriate |
 
@@ -52,7 +52,7 @@ Apply user quantity overrides independently. Zero or “no X” disables only th
 ## Announcement
 
 - Choose a concrete CTA such as official store, tickets, booking, registration, product page, or campaign landing page.
-- Follow the Content capability's **Announcement assets** workflow for sourcing, local trimming/cropping, Upload V2, and stored-dimension verification.
+- Follow the Content capability's **Announcement assets** workflow. Both crops must clearly show what is being promoted and leave room for Abilitya's title, description, and CTA overlays.
 - Keep the short description within the product's concise banner expectations.
 - Set `launchesAt` to exactly one hour before the current creation time so the Announcement is immediately visible, and set a sensible future expiry. Verify the create response preserves the past launch time. Do not send notifications.
 - Use `web_page` only when the live schema accepts it and a valid destination is present.

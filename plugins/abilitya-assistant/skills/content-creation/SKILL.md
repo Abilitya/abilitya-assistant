@@ -39,11 +39,10 @@ If documentation, examples, frontend forms, remembered schemas, or this skill co
 ## Announcement assets
 
 1. Source assets in this order: client; verified sponsor or partner; unrelated established advertiser. Generic ads must use the advertiser's official assets and destination and must not imply a relationship with the client.
-2. Download source files locally. Never use direct remote-URL upload for Announcement covers.
-3. Remove baked-in solid-color, transparent, letterbox, or pillarbox borders. Crop, never stretch, into final desktop and mobile files of at least `1558×250` and `512×250`. Cropping existing authoritative images is allowed and is not image generation. Do not upscale.
-4. Desktop and mobile may use separate crops or official responsive variants from the same campaign. Preview the exact final files at their target aspect ratios; reject visible borders, clipped focal subjects, embedded-text conflicts, or softness.
-5. Upload both prepared files through Upload V2. Before Content creation, inspect the stored originals and require at least `1558×250` for `cover` and `512×250` for `mobileCover`. A source file's dimensions, upload success, or a truthy cover field is not proof. If storage exposes only a smaller original or rendition, stop instead of publishing.
-6. After creation, verify both covers, CTA, interest, privacy, author, status, and schedule from the write response. Never send a boost or notification unless separately authorized.
+2. Choose artwork that makes the promotion immediately understandable in both a wide desktop banner and a compact mobile banner. The advertised product, event, or campaign subject must remain recognizable after cropping; a logo, package, or background alone is not enough. Prefer official responsive variants or separate desktop and mobile assets when one source cannot serve both formats.
+3. Download the source files locally. Crop, never stretch or upscale, to at least `1558×250` desktop and `512×250` mobile. Remove borders and empty padding.
+4. Inspect both final crops with the Announcement title, description, and CTA placement in mind. Reject any crop with a hidden or ambiguous subject, clipped baked-in text, artwork text behind the UI copy, poor contrast, or a CTA covering the focal subject. If either crop fails, choose different artwork; do not publish a merely dimension-compliant image.
+5. Upload both files through Upload V2 and verify the stored originals meet the minimum dimensions. After creation, verify both covers, CTA, interest, privacy, author, status, and schedule from the write response. Never send a boost or notification unless separately authorized.
 
 ## CTA dependencies
 
