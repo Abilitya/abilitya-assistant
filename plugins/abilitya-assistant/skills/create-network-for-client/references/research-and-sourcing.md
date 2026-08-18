@@ -33,7 +33,7 @@ Resolve:
 
 Do not use search-result redirect URLs, tracking-heavy mirrors, fan logos, counterfeit stores, ticket resellers, or unverified domains when an official destination exists. Remove unnecessary tracking parameters when the canonical URL is clear.
 
-When the user did not provide a logo image, select an official logo asset that is square (`1:1`) and has an opaque, non-transparent background. Verify the image dimensions and alpha/transparency before upload. Reject transparent PNGs, wide or vertical wordmarks, and assets whose apparent square shape depends on transparent padding; continue sourcing until a compliant official image is found.
+When the user did not provide a logo image, select an official, opaque `1:1` asset whose complete mark fits inside a centered circular safe area with clear padding. Verify the source and stored upload are square, then preview the applied logo as a circle. Reject transparent backgrounds, wide/vertical marks, edge-to-edge artwork, non-square stored uploads, and any result that clips or obscures the mark; continue sourcing until the rendered circle passes.
 
 ## Brand and theme inputs
 
