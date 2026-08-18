@@ -29,7 +29,7 @@ Audit the showcase before claiming it is ready.
 - Created counts meet each baseline or explicit override.
 - Every returned Content item has the intended type and successful status.
 - Stories reference uploaded video media.
-- Posts have covers and at least two related links each.
+- Posts have covers and at least two related links each; every link has valid backend-extracted metadata.
 - The Announcement is immediately understandable on desktop and mobile: the promoted subject is recognizable, UI copy and CTA do not conflict with the artwork, and the stored originals are sharp, correctly cropped, attached, and at least 1558×250 and 512×250.
 - The Announcement launch time is exactly one hour before its creation attempt and is already in the past in the authoritative create response, making it immediately eligible for public discovery.
 - Link/Web items have valid covers, titles, descriptions, and distinct external URLs.
