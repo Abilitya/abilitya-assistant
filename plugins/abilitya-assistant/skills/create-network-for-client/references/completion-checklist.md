@@ -7,7 +7,7 @@ Audit the showcase before claiming it is ready.
 - The target is the intended Abilitya staging network.
 - New football clients use the Football Club experience and the verified senior-team provider id.
 - The network has a realistic name, description, access model, and interests.
-- The requested logo is attached. When the user supplied no logo, the official fallback has an opaque, truly square stored original, and the complete centered mark remains clear and unclipped in the rendered circular logo.
+- The requested logo is attached. A fallback logo is official, opaque, `1:1`, and recognizable in its circular `48×48` render.
 - All supported Content flags are enabled.
 - Relevant official shop, booking, and ticket links are saved; irrelevant fields remain untouched.
 

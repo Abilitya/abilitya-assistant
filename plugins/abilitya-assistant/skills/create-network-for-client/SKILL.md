@@ -73,7 +73,7 @@ For non-football clients, choose the app type that best matches the client's pre
 
 ## Initial configuration
 
-- Upload and apply the user-supplied logo when provided. Otherwise, choose an official, opaque `1:1` image designed to remain fully recognizable inside a circular crop. Keep the complete mark centered with clear padding on every side. Reject wide/vertical marks, transparent backgrounds, edge-to-edge artwork, and any image whose stored upload is not square or whose rendered circle clips the mark.
+- Upload and apply the user-supplied logo when provided. Otherwise, use image search to find an official, opaque, roughly square logo whose background fills the image edge-to-edge, with no borders or padding, and whose centered mark stays clear and recognizable when circularly cropped at `48×48` pixels. Prefer direct upload; make at most one minimal crop when necessary. Trust successful upload and network-update responses instead of waiting for public caches.
 - Enable every Content type accepted by the current network customization contract. Preserve unrelated customization fields and trust the PATCH response over cached GETs.
 - Add `shopUrl`, `bookingUrl`, and `ticketUrl` only when each destination is authoritative and relevant. Do not invent or substitute aggregator URLs.
 - Create both light and dark themes from client branding. In this automatic flow, do not ask the user to choose a color, style, or neutral direction: infer them from the research and default to a **brand-immersive, vibrant presentation theme**, not the theme capability's conservative generic neutral treatment.
