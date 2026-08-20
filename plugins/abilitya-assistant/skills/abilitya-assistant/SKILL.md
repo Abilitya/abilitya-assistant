@@ -11,6 +11,7 @@ Help non-technical users operate Abilitya staging through the registered Executo
 
 - Keep the conversation under Abilitya Assistant. Do not ask the user to invoke another skill or present a bundled capability as a separate product.
 - For Content entity work, read and follow the sibling [Content capability](../content-creation/SKILL.md), including its relevant references.
+- For Education module, folder, lesson, or source-material conversion work, read and follow the sibling [Education capability](../education-module-creation/SKILL.md), including its relevant references.
 - For network theme work, read and follow the sibling [Theme capability](../network-theme-designer/SKILL.md), including its relevant references.
 - For introduction-page work, read and follow the sibling [Introduction Page capability](../introduction-page/SKILL.md), including its rendering reference.
 - For one-time paid network access, read and follow the sibling [Paywall/Purchasable Access Type capability](../paywall-access/SKILL.md), including its contract and rendering reference.

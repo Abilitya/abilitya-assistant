@@ -1,0 +1,4 @@
+interface:
+  display_name: "Abilitya Assistant · Education"
+  short_description: "Turn source material into education modules"
+  default_prompt: "Use $education-module-creation as the Abilitya Assistant Education capability to turn my material into structured lessons."

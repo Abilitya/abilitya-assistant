@@ -1,6 +1,6 @@
 {
   "name": "abilitya-assistant",
-  "version": "0.1.9",
+  "version": "0.1.10+codex.20260820130608",
   "description": "Create, manage, customize, and populate Abilitya staging networks through one guided assistant.",
   "author": {
     "name": "Abilitya"
@@ -21,6 +21,7 @@
       "Write",
       "Upload",
       "Content Creation",
+      "Education Modules",
       "Theme Design",
       "Introduction Pages",
       "Paywall Access",
