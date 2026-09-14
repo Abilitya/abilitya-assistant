@@ -61,6 +61,8 @@ Reconcile the section maps into one coherent outline before creating modules. Do
 
 When visual slides materially contribute to the lesson, run `summarize "VIDEO_OR_FILE" --slides --extract` and use only relevant extracted frames or text. Slide extraction can require `yt-dlp`; OCR can require `tesseract`. Install those only when the command reports them missing and the visual content is necessary.
 
+When the user asks to use images from the lecture, visual extraction is required. Select actual frames, slides, maps, diagrams, or figures that support the mapped lesson topic; do not use YouTube thumbnails as a substitute. Record each selected visual's timestamp privately in the source map, create a distinct visual plan before writing, and avoid reuse unless the same visual is genuinely needed for more than one lesson. If the tooling cannot retrieve suitable source visuals, report the failure instead of silently replacing them with thumbnails or generic imagery.
+
 ## Keep the video placement intentional
 
 Embed a supplied video in at most one lesson, normally the opening/full-lecture lesson, and put it near the top. Create the remaining lessons from the transcript without duplicating the video. Use timestamped raw links to the supplied hosted video only when they are useful and available; do not create extra video embeds.
@@ -68,6 +70,8 @@ Embed a supplied video in at most one lesson, normally the opening/full-lecture 
 ## Verify before creation
 
 - Confirm transcript extraction succeeded and contains the lecture's actual content.
+- Confirm the complete timestamped transcript was reviewed and mapped, not merely extracted.
 - Cross-check the module outline against the timestamped lecture map.
+- When video visuals were requested, confirm every planned visual is an actual source frame/slide/map/diagram and is assigned to the lesson it supports.
 - Preserve uncertainty instead of filling gaps with invented explanations.
 - Keep all created modules, folders, and lessons as drafts unless the user explicitly requests publication.

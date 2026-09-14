@@ -21,6 +21,8 @@ Create a private source-to-module map before any Education write. For each subst
 
 Use the map to choose natural teaching units. Retain meaningful chronology, causal chains, comparisons, demonstrations, and transitions; do not flatten them into isolated bullets.
 
+For long recordings, this map is evidence that the complete source was reviewed, not an optional planning aid. Do not create lessons from an excerpt, keyword search, or a high-level transcript summary. Work through the full timestamped source in chronological sections and reconcile those sections into the map before writing.
+
 ## What must be preserved
 
 Cover every substantive topic and its material supporting detail unless it is genuinely repetitive, administrative, inaccessible, or explicitly out of scope. In particular, preserve when present:
@@ -49,5 +51,6 @@ Before creating drafts, compare the module outline and proposed lesson bodies wi
 3. Broad lesson titles must not hide unrelated omitted subtopics; split them when depth or navigation requires it.
 4. Lesson order must preserve the source’s meaningful progression unless a clearer pedagogical order is explicitly justified.
 5. If the source cannot be accessed, transcribed, or read fully, say so and do not claim comprehensive conversion.
+6. Each proposed lesson body must contain the mapped explanation, reasoning, examples, and evidence needed to teach its topic. A short synopsis of the timestamp range does not satisfy coverage.
 
 After creation, verify that the saved hierarchy and returned HTML still represent the mapped material. Report only material omissions that are concrete and source-specific.

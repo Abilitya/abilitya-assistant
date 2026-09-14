@@ -22,7 +22,7 @@ For a supplied video or video URL, read [long-form-video.md](long-form-video.md)
 
 ## Preserve source fidelity
 
-- Treat the source as the curriculum, not merely as inspiration for a brief summary. Preserve its depth, progression, examples, evidence, and qualifications in a teachable structure.
+- Treat the source as the curriculum, not merely as inspiration for a brief summary. Preserve its depth, progression, examples, evidence, and qualifications in a teachable structure. By default, lesson bodies must be substantial teaching material: develop the source's claims and reasoning instead of reducing a section to a few summary paragraphs.
 - Preserve the source's meaning, factual qualifications, terminology, citations, and attribution.
 - Restructure for learning rather than copying page breaks or note-file boundaries mechanically.
 - Distinguish source facts from brief connective explanation. Do not invent quotations, examples attributed to the source, credentials, statistics, or conclusions.
@@ -34,7 +34,7 @@ For a supplied video or video URL, read [long-form-video.md](long-form-video.md)
 
 Create lessons with one clear purpose. Prefer a progression such as context, concepts, worked examples, practice, and recap when the material supports it; do not force this template onto every subject.
 
-Do not use a small number of broad thematic lessons as a substitute for source coverage. Split dense material into as many lessons or folders as needed to represent it faithfully and readably.
+Do not use a small number of broad thematic lessons as a substitute for source coverage. Split dense material into as many lessons or folders as needed to represent it faithfully and readably. A lesson should explain its mapped topic, not merely name it and point back to the recording.
 
 Use folders as sections, not as empty decoration. Avoid folders containing only one lesson unless the grouping is meaningful or the user requested it. Keep lesson titles concrete and module titles within the API limit.
 
@@ -55,7 +55,9 @@ Every module requires a cover. Use a specifically supplied cover first. Otherwis
 
 ### Source images
 
-Carry relevant images from the supplied material into the lesson where they support understanding. Extract or download the actual image, upload it, and use the final returned URL in `<img>`. Preserve captions or attribution in nearby paragraphs when present. Provide accurate alt text.
+Carry relevant images from the supplied material into the lesson where they support understanding. Extract or download the actual image, upload it, and use the final returned URL in `<img>`. Provide accurate alt text.
+
+When a user asks for images from a supplied video, extract actual visual material from the video: relevant slides, maps, diagrams, figures, or frames at the applicable topic. Do not substitute the video thumbnail. Build a visual plan alongside the coverage map, assign visuals to the lesson they support, and use distinct visuals by default. Reuse a source visual only when it genuinely teaches more than one mapped topic; otherwise extract another relevant visual. If frame or slide extraction fails, report that limitation rather than silently using a thumbnail or unrelated replacement.
 
 If the supplied material has no images, do not search for, generate, or add lesson images unless the user explicitly requests that enrichment. The independently required module-cover lookup is still allowed.
 
@@ -72,6 +74,7 @@ Before creating:
 - Confirm the chosen one-module or multiple-module structure.
 - Confirm every module has a planned cover.
 - Confirm lesson imagery follows the source-only rule unless enrichment was requested.
+- When source-video visuals were requested, confirm the image plan uses actual, distinct source visuals rather than thumbnails or arbitrary repeated frames.
 - Confirm every lesson contains no more than one video and no unsolicited video.
 - Confirm titles fit API limits.
 - Confirm all content is planned as draft unless publication was explicit.
@@ -80,5 +83,6 @@ After creating:
 
 - Verify the returned module and item hierarchy.
 - Verify every expected lesson and source asset appears once in the intended place.
+- Verify the saved lesson bodies are substantial representations of their mapped source sections, rather than short summaries.
 - Verify returned sanitized HTML retains semantic blocks and custom rich-media markers.
 - Verify all modules and items remain drafts unless explicitly published.
