@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "executor": {
-      "url": "https://abilitya-assistant-git-staging-hashtagbe.vercel.app"
+      "url": "https://abilitya-assistant-git-staging-hashtagbe.vercel.app/mcp"
     }
   }
 }
