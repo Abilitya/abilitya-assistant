@@ -37,10 +37,10 @@ Provide `networkIdOrSlug`, `email`, `password`, `mimeType`, `originalName`, and 
 
 ```ts
 const searches = await Promise.all([
-  tools.search({ namespace: "hashtagbe", query: "resolve network id slug domain", limit: 8 }),
-  tools.search({ namespace: "hashtagbe", query: "login email password network", limit: 8 }),
-  tools.search({ namespace: "hashtagbe", query: "upload v2 initialize multipart", limit: 8 }),
-  tools.search({ namespace: "hashtagbe", query: "upload v2 part signed url", limit: 8 })
+  tools.search({ namespace: "abilitya_api_stg", query: "resolve network id slug domain", limit: 8 }),
+  tools.search({ namespace: "abilitya_api_stg", query: "login email password network", limit: 8 }),
+  tools.search({ namespace: "abilitya_api_stg", query: "upload v2 initialize multipart", limit: 8 }),
+  tools.search({ namespace: "abilitya_api_stg", query: "upload v2 part signed url", limit: 8 })
 ])
 
 const findPath = (index, suffix) =>
@@ -126,7 +126,7 @@ If a part fails, request a new signed URL for that same part and retry it up to 
 
 ### Request each subsequent signed URL
 
-For each remaining `partNumber`, authenticate with the reusable staging credentials if the prior access token is unavailable or expired, discover/describe `getUploadsV2PartSignedUrl`, and call:
+For each remaining `partNumber`, authenticate with the reusable credentials if the prior access token is unavailable or expired, discover/describe `getUploadsV2PartSignedUrl`, and call:
 
 ```ts
 const signed = await tools[signedUrlPath]({
@@ -149,9 +149,9 @@ Provide the retained `fileStorageUploadId`, `key`, `requestId`, and ordered `upl
 
 ```ts
 const searches = await Promise.all([
-  tools.search({ namespace: "hashtagbe", query: "login email password network", limit: 8 }),
-  tools.search({ namespace: "hashtagbe", query: "upload v2 complete multipart", limit: 8 }),
-  tools.search({ namespace: "hashtagbe", query: "upload v2 request status upload id", limit: 8 })
+  tools.search({ namespace: "abilitya_api_stg", query: "login email password network", limit: 8 }),
+  tools.search({ namespace: "abilitya_api_stg", query: "upload v2 complete multipart", limit: 8 }),
+  tools.search({ namespace: "abilitya_api_stg", query: "upload v2 request status upload id", limit: 8 })
 ])
 
 const loginPath = searches[0].items.find((item) => item.path.endsWith("postV2AuthLogin"))?.path
@@ -231,14 +231,14 @@ An upload is usually an intermediate result, not the end of the user's request. 
 
 1. Search for and describe the entity operation instead of guessing its path or request fields.
 2. Pass the numeric upload id—not the signed URL, storage key, or final media URL—to the schema field that represents the media. Common shapes include a singular field such as `cover`, `mobileCover`, or `logo`, and collections such as `medias`; always follow the described schema.
-3. Keep the entity operation in the same authenticated execution when possible. If the byte-transfer phase split the workflow, authenticate again with the reusable staging credentials and continue without re-uploading the file.
+3. Keep the entity operation in the same authenticated execution when possible. If the byte-transfer phase split the workflow, authenticate again with the reusable credentials and continue without re-uploading the file.
 4. Return success only after the requested entity exists or has been updated. If that operation fails, retain and report the safe upload id so the entity operation can be retried without creating a duplicate upload.
 
 For a content post whose described create schema accepts `cover?: number`, continue with this verified pattern:
 
 ```ts
 const matches = await tools.search({
-  namespace: "hashtagbe",
+  namespace: "abilitya_api_stg",
   query: "create content post cover title description",
   limit: 12
 })
@@ -281,7 +281,7 @@ return {
 }
 ```
 
-Confirm that the returned entity references the expected upload when the response exposes that relationship. This upload-to-cover recipe was verified in staging with a WebP upload followed by creation of a `post`; the returned content's cover id matched the upload id.
+Confirm that the returned entity references the expected upload when the response exposes that relationship. This upload-to-cover recipe was verified against the connected API with a WebP upload followed by creation of a `post`; the returned content's cover id matched the upload id.
 
 ## Direct upload fallback
 

@@ -16,12 +16,12 @@ Build an internal brief containing:
 - canonical client name and category;
 - create-new or existing-network mode;
 - target network identifier when supplied;
-- authorized staging owner identity and credentials;
+- authorized owner identity and credentials;
 - user-supplied logo, kit, campaign, or brand assets;
 - baseline quantities with only explicit category overrides applied;
 - requested exclusions, links, locale, access model, or presentation date.
 
-Do not ask for information that authoritative research or the active staging context can resolve safely.
+Do not ask for information that authoritative research or the active network context can resolve safely.
 
 ## Phase order
 
@@ -50,7 +50,7 @@ Use dedicated sub-agents because research, source selection, downloads, and edit
 - **Announcement agent:** follow the Content capability's **Announcement assets** workflow, select an authoritative CTA, and create the Announcement with verified desktop and mobile covers. Never use image generation.
 - **Events agent:** create verified upcoming Events first, then realistic network-owned community Events if necessary. Keep all member-facing copy free of internal workflow language and disclaimers.
 
-The coordinator may perform one Wave 2 role itself when concurrency or latency makes that more reliable, but preserve distinct research responsibility. Give each worker exact quantity, target network, source rules, no-notification rule, and completion fields. Do not pass access tokens. Inherited authorized staging credentials may be reused privately; every worker resolves and logs in independently.
+The coordinator may perform one Wave 2 role itself when concurrency or latency makes that more reliable, but preserve distinct research responsibility. Give each worker exact quantity, target network, source rules, no-notification rule, and completion fields. Do not pass access tokens. Inherited authorized credentials may be reused privately; every worker resolves and logs in independently.
 
 Wait for every worker. Consolidate created titles, types, statuses, source URLs, fallbacks, and failures. A worker's research notes are not proof of creation; require successful Content write results.
 
@@ -60,7 +60,7 @@ Each worker must:
 
 1. read the applicable Abilitya skills;
 2. resolve the target network;
-3. log in with the authorized staging credentials;
+3. log in with the authorized credentials;
 4. keep its access token inside its own active execution;
 5. return only safe business results.
 

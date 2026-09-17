@@ -2,8 +2,7 @@ declare const process: {
   env: Record<string, string | undefined>;
 };
 
-const EXECUTOR_ORIGIN = "https://executor.sh";
-const EXECUTOR_MCP_PATH = "/hashtagbe/mcp/toolkits/hashtagbe-tools";
+const DEFAULT_EXECUTOR_ORIGIN = "https://executor.sh";
 
 const REQUEST_HEADERS = [
   "accept",
@@ -23,16 +22,18 @@ const RESPONSE_HEADERS = [
 export default {
   async fetch(request: Request): Promise<Response> {
     const apiKey = process.env.EXECUTOR_API_KEY;
+    const executorOrigin = process.env.EXECUTOR_ORIGIN ?? DEFAULT_EXECUTOR_ORIGIN;
+    const executorMcpPath = process.env.EXECUTOR_MCP_PATH;
 
-    if (!apiKey) {
+    if (!apiKey || !executorMcpPath) {
       return Response.json(
-        { error: "Executor API key is not configured" },
+        { error: "Executor MCP proxy is not configured" },
         { status: 500 },
       );
     }
 
     const requestUrl = new URL(request.url);
-    const upstreamUrl = new URL(EXECUTOR_MCP_PATH, EXECUTOR_ORIGIN);
+    const upstreamUrl = new URL(executorMcpPath, executorOrigin);
     upstreamUrl.search = requestUrl.search;
 
     const upstreamHeaders = new Headers();

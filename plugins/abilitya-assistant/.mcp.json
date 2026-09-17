@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "executor": {
-      "url": "https://abilitya-assistant.vercel.app/mcp"
+      "url": "https://abilitya-assistant-staging.vercel.app/mcp"
     }
   }
 }

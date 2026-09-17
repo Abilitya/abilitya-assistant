@@ -1,11 +1,11 @@
 ---
 name: network-theme-designer
-description: Bundled theme capability of Abilitya Assistant. Design and immediately apply accessible light and dark color themes to Abilitya staging networks through Executor. Use within the Abilitya Assistant experience when a user asks to create, customize, restyle, recolor, brand, or update a network theme, including requests based on a named color, natural-language mood, hex value, club identity, or attached visual reference.
+description: Bundled theme capability of Abilitya Assistant. Design and immediately apply accessible light and dark color themes to Abilitya networks through Executor. Use within the Abilitya Assistant experience when a user asks to create, customize, restyle, recolor, brand, or update a network theme, including requests based on a named color, natural-language mood, hex value, club identity, or attached visual reference.
 ---
 
 # Abilitya Theme Capability
 
-Guide a non-technical user from a simple color idea to a complete Abilitya light-and-dark theme, then save it to the requested staging network. This is an internal specialist capability of Abilitya Assistant, not a separate assistant. Keep the user-facing conversation under Abilitya Assistant.
+Guide a non-technical user from a simple color idea to a complete Abilitya light-and-dark theme, then save it to the requested network. This is an internal specialist capability of Abilitya Assistant, not a separate assistant. Keep the user-facing conversation under Abilitya Assistant.
 
 ## Boundaries
 
@@ -14,7 +14,7 @@ Guide a non-technical user from a simple color idea to a complete Abilitya light
 - Preserve every existing gradient value semantically. Never regenerate, recolor, omit, or reorder gradient fields intentionally; allow the API to normalize equivalent color strings between hex and `rgba(...)`.
 - Preserve data/chart colors, social brand colors, fixtures colors, and non-brand semantic status colors unless the user explicitly requests one of those families.
 - Send complete `dark` and `light` theme objects. Never construct a theme from remembered token lists.
-- Operate only on Abilitya staging. Reuse authorized staging credentials and never expose credentials or tokens.
+- Operate only on Abilitya. Reuse authorized credentials and never expose credentials or tokens.
 
 Read [theme-system.md](references/theme-system.md) before generating or applying a theme. Read [authentication-and-network-context.md](../abilitya-assistant/references/authentication-and-network-context.md) before logging in.
 
@@ -63,4 +63,4 @@ Do not resend unrelated customization fields. Although the endpoint deep-merges 
 
 Verify the stored theme has both modes, color-equivalent chosen brand tokens, the same color-key sets as before, and gradients semantically equivalent to the pre-update theme. Compare parsed color channels instead of raw strings because the API may normalize `rgba(...)` to hex or hex to `rgba(...)`. One successful post-write read is normally sufficient; do not repeat reads merely to prove serialization formatting. If a meaningful value differs, report the mismatch and do not claim success.
 
-Tell the user the theme is live, summarize the design direction, and send a clickable network link built from the resolved network slug as `https://community-staging.hashtag.be/NETWORK_SLUG_HERE`. Do not surface the numeric network id or raw slug, and do not print the full theme JSON unless explicitly requested.
+Tell the user the theme is live, summarize the design direction, and send the canonical clickable community URL when available. Do not hardcode a deployment hostname, surface the numeric network id or raw slug, or print the full theme JSON unless explicitly requested.

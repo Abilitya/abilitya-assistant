@@ -1,19 +1,19 @@
 {
   "name": "abilitya-assistant",
   "version": "0.1.12",
-  "description": "Create, manage, customize, and populate Abilitya staging networks through one guided assistant.",
+  "description": "Create, manage, customize, and populate Abilitya networks through one guided assistant.",
   "author": {
     "name": "Abilitya"
   },
   "repository": "https://github.com/Abilitya/abilitya-assistant",
   "skills": "./skills/",
   "interface": {
-    "displayName": "Abilitya Assistant",
-    "composerIcon": "./assets/abilitya-icon.png",
-    "logo": "./assets/abilitya-icon.png",
-    "logoDark": "./assets/abilitya-icon.png",
+    "displayName": "Abilitya Assistant (Staging)",
+    "composerIcon": "./assets/abilitya-icon-staging.png",
+    "logo": "./assets/abilitya-icon-staging.png",
+    "logoDark": "./assets/abilitya-icon-staging.png",
     "shortDescription": "One assistant for every Abilitya workflow.",
-    "longDescription": "Create and manage networks, authenticate users, upload media, produce rich Content, operate Social Feed features, and design accessible light and dark themes through one coherent Abilitya Assistant experience.",
+    "longDescription": "Set up your own Abilitya network in minutes: Create stories, posts, promotions, education courses and more content, have GPT generate engaging light and dark themes for your network. All through one coherent Abilitya Assistant experience.",
     "developerName": "Abilitya",
     "category": "Productivity",
     "capabilities": [
@@ -29,9 +29,9 @@
       "Private Access"
     ],
     "defaultPrompt": [
-      "Use Abilitya Assistant to manage my staging network.",
-      "Create Content for my Abilitya staging network.",
-      "Prepare an Abilitya staging network for a client demo."
+      "Use Abilitya Assistant to manage my network.",
+      "Create Content for my Abilitya network.",
+      "Prepare an Abilitya network for a client demo."
     ]
   },
   "mcpServers": "./.mcp.json"

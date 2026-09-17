@@ -1,11 +1,11 @@
 ---
 name: education-module-creation
-description: Bundled Education capability of Abilitya Assistant. Create, edit, structure, and populate Abilitya staging education modules, folders, and rich-HTML lessons; convert notes, PDFs, documents, lecture videos, YouTube links, and other supplied learning material into courses. Use within the Abilitya Assistant experience whenever a user asks for Education, learning or training modules, courses, lessons, module folders, lesson HTML, or conversion of source material into structured learning content.
+description: Bundled Education capability of Abilitya Assistant. Create, edit, structure, and populate Abilitya education modules, folders, and rich-HTML lessons; convert notes, PDFs, documents, lecture videos, YouTube links, and other supplied learning material into courses. Use within the Abilitya Assistant experience whenever a user asks for Education, learning or training modules, courses, lessons, module folders, lesson HTML, or conversion of source material into structured learning content.
 ---
 
 # Abilitya Education Capability
 
-Create and edit Education modules, folders, and lessons on Abilitya staging. Convert supplied source material faithfully into a useful learning sequence. Keep the user-facing conversation under Abilitya Assistant and continue applying the parent skill's authentication, upload, privacy, confirmation, cached-read, and completion rules.
+Create and edit Education modules, folders, and lessons on Abilitya. Convert supplied source material faithfully into a useful learning sequence. Keep the user-facing conversation under Abilitya Assistant and continue applying the parent skill's authentication, upload, privacy, confirmation, cached-read, and completion rules.
 
 ## Load the needed references
 
@@ -22,7 +22,7 @@ Create and edit Education modules, folders, and lessons on Abilitya staging. Con
 - Search Executor by intent, inspect every selected tool with `tools.describe.tool(...)`, and build requests only from the live `inputTypeScript`.
 - Never guess a tool path or request field from this skill. Use the API reference for discovery terms, sequencing, and invariants only.
 - Branch on every `{ ok: false }` result. Treat successful write responses as authoritative because immediate GET responses can be cached.
-- Operate only on Abilitya staging.
+- Operate only on Abilitya.
 
 ## Choose the learning structure
 

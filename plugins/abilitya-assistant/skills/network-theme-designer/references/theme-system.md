@@ -199,10 +199,10 @@ Discover first:
 
 ```ts
 const searches = await Promise.all([
-  tools.search({ namespace: "hashtagbe", query: "resolve network slug domain", limit: 10 }),
-  tools.search({ namespace: "hashtagbe", query: "login email password network", limit: 10 }),
-  tools.search({ namespace: "hashtagbe", query: "read network customization theme", limit: 10 }),
-  tools.search({ namespace: "hashtagbe", query: "patch network theme customization", limit: 10 }),
+  tools.search({ namespace: "abilitya_api_stg", query: "resolve network slug domain", limit: 10 }),
+  tools.search({ namespace: "abilitya_api_stg", query: "login email password network", limit: 10 }),
+  tools.search({ namespace: "abilitya_api_stg", query: "read network customization theme", limit: 10 }),
+  tools.search({ namespace: "abilitya_api_stg", query: "patch network theme customization", limit: 10 }),
 ]);
 ```
 
@@ -255,4 +255,4 @@ Re-read the public customization after the patch. Verify:
 
 Do not fail verification merely because the API serialized a color differently. A successful write response plus a re-read with matching parsed color channels, unchanged key sets, and unchanged gradient meaning is sufficient. Keep verification proportionate: one post-write customization read is normally enough.
 
-Return only safe summary fields such as network name, network link, chosen brand hex, style, neutral family, and verification booleans. Do not surface the numeric network id or raw slug. Build the link from the resolved slug as `https://community-staging.hashtag.be/NETWORK_SLUG_HERE`.
+Return only safe summary fields such as network name, canonical community URL, chosen brand hex, style, neutral family, and verification booleans. Do not hardcode a deployment hostname or surface the numeric network id or raw slug.

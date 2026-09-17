@@ -1,11 +1,11 @@
 ---
 name: content-creation
-description: Bundled Content capability of Abilitya Assistant. Create Abilitya Content entities on staging, including Posts, Shorts/Stories, external Videos, Hosted Videos, Streaming, Link/Web content, Announcements, Documents, Events, Galleries, and Scratch content. Use within the Abilitya Assistant experience whenever a user asks to create, draft, upload, or publish network Content, names one of those Content types, requests a Content CTA, or wants client-tailored Content. Do not use for Social Feed posts unless the user explicitly says feed, social feed, or feed post.
+description: Bundled Content capability of Abilitya Assistant. Create Abilitya Content entities, including Posts, Shorts/Stories, external Videos, Hosted Videos, Streaming, Link/Web content, Announcements, Documents, Events, Galleries, and Scratch content. Use within the Abilitya Assistant experience whenever a user asks to create, draft, upload, or publish network Content, names one of those Content types, requests a Content CTA, or wants client-tailored Content. Do not use for Social Feed posts unless the user explicitly says feed, social feed, or feed post.
 ---
 
 # Abilitya Content Capability
 
-Create a Content entity with the correct type, media, metadata, interests, author, visibility, and optional CTA. This is an internal specialist capability of Abilitya Assistant, not a separate assistant. Keep the user-facing conversation under Abilitya Assistant and operate only on Abilitya staging through Executor.
+Create a Content entity with the correct type, media, metadata, interests, author, visibility, and optional CTA. This is an internal specialist capability of Abilitya Assistant, not a separate assistant. Keep the user-facing conversation under Abilitya Assistant and operate only on Abilitya through Executor.
 
 ## Route language correctly
 
@@ -54,4 +54,4 @@ If documentation, examples, frontend forms, remembered schemas, or this skill co
 
 ## Completion
 
-Report the created Content type, title, returned status, and important attachments/CTA in plain language. Send the network link as `https://community-staging.hashtag.be/NETWORK_SLUG_HERE`. Do not expose network ids, raw slugs, upload ids, tokens, or internal tool paths.
+Report the created Content type, title, returned status, and important attachments/CTA in plain language. Send the canonical clickable community URL when available. Do not hardcode a deployment hostname or expose network ids, raw slugs, upload ids, tokens, or internal tool paths.

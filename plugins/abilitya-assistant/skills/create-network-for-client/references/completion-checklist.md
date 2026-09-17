@@ -4,7 +4,7 @@ Audit the showcase before claiming it is ready.
 
 ## Network
 
-- The target is the intended Abilitya staging network.
+- The target is the intended Abilitya network.
 - New football clients use the Football Club experience and the verified senior-team provider id.
 - The network has a realistic name, description, access model, and interests.
 - The requested logo is attached. A fallback logo is official, opaque, `1:1`, and recognizable in its circular `48×48` render.
@@ -45,7 +45,7 @@ Repair safe deficiencies automatically: retry processing, attach a completed upl
 Return:
 
 - the client and network affected;
-- a clickable `https://community-staging.hashtag.be/SLUG` link;
+- the canonical clickable community URL;
 - configuration summary: app type, logo, theme direction, and saved commercial links;
 - Content inventory by format and status;
 - representative source links and any platform fallback;

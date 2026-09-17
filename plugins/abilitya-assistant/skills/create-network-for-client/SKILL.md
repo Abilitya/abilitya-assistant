@@ -1,17 +1,17 @@
 ---
 name: create-network-for-client
-description: Create or transform a Abilitya staging network into a presentation-ready client showcase. Use when a business user asks to create, prepare, populate, demo, pitch, or build a network for a named prospective client, club, brand, retailer, organization, or existing staging network. Automatically handles onboarding or existing-network authentication, client research, Football Club team resolution, interests, logo, links, all Content-type enablement, brand-derived light and dark themes, and a realistic multi-format Content library produced with sub-agents. Explicit per-format quantities override only that format's baseline.
+description: Create or transform an Abilitya network into a presentation-ready client showcase. Use when a business user asks to create, prepare, populate, demo, pitch, or build a network for a named prospective client, club, brand, retailer, organization, or existing network. Automatically handles onboarding or existing-network authentication, client research, Football Club team resolution, interests, logo, links, all Content-type enablement, brand-derived light and dark themes, and a realistic multi-format Content library produced with sub-agents. Explicit per-format quantities override only that format's baseline.
 ---
 
 # Create Network for Client
 
-Build a polished Abilitya staging network that the business team can open and present immediately.
+Build a polished Abilitya network that the business team can open and present immediately.
 
 ## Compose the bundled capabilities
 
 Read and follow these sibling skills before acting:
 
-- `../abilitya-assistant/SKILL.md` for staging, discovery, authentication, onboarding, uploads, confirmations, cached reads, and privacy.
+- `../abilitya-assistant/SKILL.md` for discovery, authentication, onboarding, uploads, confirmations, cached reads, and privacy.
 - `../content-creation/SKILL.md` for Content creation and live-schema precedence.
 - `../network-theme-designer/SKILL.md` for complete accessible themes and gradient preservation.
 
@@ -34,7 +34,7 @@ Read [orchestration.md](references/orchestration.md) before starting. Read [rese
 
 ## Member-facing realism
 
-Every Content item must read as authentic, finished content for the network's audience. Never mention or imply in a title, description, organizer name, venue, CTA, or other member-facing field that Content is for staging, a client presentation, a showcase, a demo, a pitch, a prototype, a fallback, a concept, a preview, simulated, fictional, unverified, or not publicly confirmed. Do not expose operational caveats, sourcing notes, internal workflow language, or AI commentary in Content. Apply factual guardrails by choosing safer claims, not by adding disclaimers.
+Every Content item must read as authentic, finished content for the network's audience. Never mention or imply in a title, description, organizer name, venue, CTA, or other member-facing field that Content is for a client presentation, a showcase, a demo, a pitch, a prototype, a fallback, a concept, a preview, simulated, fictional, unverified, or not publicly confirmed. Do not expose operational caveats, sourcing notes, internal workflow language, or AI commentary in Content. Apply factual guardrails by choosing safer claims, not by adding disclaimers.
 
 ## Execution contract
 
@@ -98,7 +98,7 @@ Prefer verified upcoming fixtures, launches, sales, conferences, performances, o
 
 ## Safety and quality
 
-- Operate only on Abilitya staging.
+- Operate only on Abilitya.
 - Use original editorial writing; distinguish opinion from reported fact.
 - Prefer official client-owned media and sources. Preserve attribution.
 - Never boost, broadcast, notify, approve later, redeem, delete, or perform another separately confirmable action unless explicitly authorized.

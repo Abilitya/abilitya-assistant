@@ -6,17 +6,17 @@
 
 Resolve first and retain the numeric network id for later operations. Network resolution proves the tenant exists; it does not authorize the member.
 
-## Reuse authorized staging credentials
+## Reuse authorized credentials
 
-This integration operates only in an isolated, protected staging environment. Once the user supplies or authorizes a network identifier, email, and password, reuse them for subsequent staging operations without prompting again. Continue until the user changes or revokes them, authentication rejects them, or the active product no longer has the credentials available.
+Once the user supplies or authorizes a network identifier, email, and password, reuse them for subsequent Abilitya operations without prompting again. Continue until the user changes or revokes them, authentication rejects them, or the active product no longer has the credentials available.
 
-Keep credentials in private conversation/plugin credential context when the product supports it. Never print them, write them to ordinary files or artifacts, place them in a final response, or send them outside Abilitya staging. Do not claim credentials were remembered across tasks unless the active product actually retained them.
+Keep credentials in private conversation/plugin credential context when the product supports it. Never print them, write them to ordinary files or artifacts, place them in a final response, or send them outside Abilitya. Do not claim credentials were remembered across tasks unless the active product actually retained them.
 
 Call `POST /v2/auth/login` with `email`, `password`, and the resolved numeric `networkId`. A normal success returns access and refresh tokens. Use the access token for protected calls. Ignore the refresh token.
 
 If login returns `synchronizing_membership`, retry up to three times with short bounded delays. Treat 401 as rejected credentials and ask the user to update them. Respect 429 rather than repeatedly attempting login.
 
-Reuse a valid access token inside one execution. When a later phase receives 401 because the token expired, log in again automatically using the authorized staging credentials and retry only that protected call. Do not restart completed writes.
+Reuse a valid access token inside one execution. When a later phase receives 401 because the token expired, log in again automatically using the authorized credentials and retry only that protected call. Do not restart completed writes.
 
 ## Complete code-mode recipe
 
@@ -25,12 +25,12 @@ Run resolution, login, and dependent protected calls together whenever possible.
 ```ts
 const searches = await Promise.all([
   tools.search({
-    namespace: "hashtagbe",
+    namespace: "abilitya_api_stg",
     query: "resolve network id slug domain",
     limit: 8
   }),
   tools.search({
-    namespace: "hashtagbe",
+    namespace: "abilitya_api_stg",
     query: "login email password network",
     limit: 8
   })
@@ -79,4 +79,4 @@ const Authorization = `Bearer ${login.data.data.accessToken}`
 // Return only safe business results, never `login` or Authorization.
 ```
 
-When no reusable credentials are available, request the staging network URL or identifier, email, and password in one short prompt. Do not request them again merely because a new turn began.
+When no reusable credentials are available, request the network URL or identifier, email, and password in one short prompt. Do not request them again merely because a new turn began.

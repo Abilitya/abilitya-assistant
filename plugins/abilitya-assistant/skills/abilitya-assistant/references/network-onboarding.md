@@ -19,7 +19,7 @@ Use Executor's live catalog rather than memorizing tool paths:
 
 ```ts
 const { items } = await tools.search({
-  namespace: "hashtagbe",
+  namespace: "abilitya_api_stg",
   query: "create network lead onboarding",
   limit: 12,
 });
@@ -31,7 +31,7 @@ const schema = await tools.describe.tool({ path: match.path });
 // Inspect schema.inputTypeScript before calling tools[match.path](input).
 ```
 
-The catalog-search tool used for soccer-team discovery is Executor's `tools.search`. Search it with `namespace: "hashtagbe"` and queries such as `search soccer teams`, `football teams`, `team lookup`, `football provider`, and the required schema field `teamId`. If one query is weak, try singular/plural and provider-oriented variants, paginate while `hasMore` is true, deduplicate paths, and inspect candidate names and descriptions with `tools.describe.tool`. Do not declare the lookup missing after only the first query.
+The catalog-search tool used for soccer-team discovery is Executor's `tools.search`. Search it with `namespace: "abilitya_api_stg"` and queries such as `search soccer teams`, `football teams`, `team lookup`, `football provider`, and the required schema field `teamId`. If one query is weak, try singular/plural and provider-oriented variants, paginate while `hasMore` is true, deduplicate paths, and inspect candidate names and descriptions with `tools.describe.tool`. Do not declare the lookup missing after only the first query.
 
 Before giving up on any onboarding capability, exhaust this search ladder:
 
@@ -73,7 +73,7 @@ Required by `POST /leads/networks`:
 - email;
 - password for the future owner account.
 
-Optional fields include locale, latitude, longitude, and mobile phone. Infer names only from reliable current profile data and allow correction. Reuse an authorized staging email and password when available; ask only for missing values.
+Optional fields include locale, latitude, longitude, and mobile phone. Infer names only from reliable current profile data and allow correction. Reuse an authorized email and password when available; ask only for missing values.
 
 Call `POST /leads/networks`. It sends a six-digit numeric confirmation code by email and returns a lead id and continuation token. These values are not member credentials. They must remain available in the current Codex task's private tool/conversation context so the flow can resume after the user returns with the email code.
 
@@ -176,9 +176,9 @@ Users operating this AI agent have already accepted the current onboarding contr
 
 ### Retrieve contracts before the new network exists
 
-The Contracts read requires an existing network as resolution context even though the network being onboarded does not exist yet. Use this deterministic staging bootstrap:
+The Contracts read requires an existing network as resolution context even though the network being onboarded does not exist yet. Use this deterministic bootstrap:
 
-1. Discover the public network resolver and resolve the known public staging network `super-app`.
+1. Discover the public network resolver and resolve the known public network `super-app`.
 2. Use the returned numeric network id only as context for reading the current default contracts. This does not attach the lead to `super-app` and does not change the target network.
 3. Discover and inspect the Contracts read tool.
 4. Request each required English contract separately, passing both `networkId` and `type`. Do not omit `type`, use `0`, invent a future network id, or call member login.
@@ -233,7 +233,7 @@ return {
 
 An HTTP 401 or `connection_rejected` from a Contracts read does not automatically mean the Executor integration needs reauthentication. Before asking the user to reconnect anything, verify that:
 
-- a real existing public staging network id was supplied;
+- a real existing public network id was supplied;
 - `type` was supplied explicitly;
 - no stale `Authorization` value was supplied; and
 - the static Executor connection is otherwise working.
@@ -246,7 +246,7 @@ Do not ask the user for a provider id when the club name is enough. Search Execu
 
 ```ts
 const searchResult = await tools.search({
-  namespace: "hashtagbe",
+  namespace: "abilitya_api_stg",
   query: "search soccer teams",
   limit: 20,
 });
@@ -264,7 +264,7 @@ const teams = await tools[teamTool.path]({ search: clubName });
 if (!teams.ok) return safeError("team lookup", teams.error);
 ```
 
-Choose the senior men's team whose returned name matches the requested club. If several plausible teams remain, show their plain names and ask the user to choose. Never infer a women's, academy, or youth team from the club name alone. Carry the returned numeric id into final creation. The verified Juventus FC staging creation accepted men's team id `496`; treat that as an example, not a universal hardcoded value.
+Choose the senior men's team whose returned name matches the requested club. If several plausible teams remain, show their plain names and ask the user to choose. Never infer a women's, academy, or youth team from the club name alone. Carry the returned numeric id into final creation. The verified Juventus FC creation accepted men's team id `496`; treat that as an example, not a universal hardcoded value.
 
 ## 5. Convert the lead
 
@@ -291,7 +291,7 @@ return {
   ok: true,
   network: {
     name: network.name,
-    link: `https://community-staging.hashtag.be/${network.slug}`,
+    slug: network.slug,
     access: network.customization.accessType,
     appType: userFacingAppType(network.customization.appType),
   },
@@ -300,7 +300,7 @@ return {
 
 The internal conditional is important: include `teamId` for Football Club and omit it for all other app types. Verify the response contains the requested app type and, when exposed, the men's soccer-team id.
 
-Report the new network name and its clickable staging link. Do not surface the numeric network id or raw slug. Always build the user-facing link from the returned slug in this exact form: `https://community-staging.hashtag.be/NETWORK_SLUG_HERE`. Then proactively offer the three most useful next steps in plain language: add a network logo when one is not already set, create the network's first content, or generate a custom light-and-dark theme. Do not begin any follow-up until the user chooses it. If the user already supplied a logo image during onboarding and asked for it to be used, complete that authorized logo setup after conversion instead of merely suggesting it again. Immediately discard the lead id, lead token, and confirmation code. Keep using the authorized staging owner credentials for later staging operations until the user changes or revokes them, authentication rejects them, or the active product no longer has them available.
+Report the new network name and its canonical clickable community URL. Do not surface the numeric network id or raw slug. Use the URL returned by the API or build it with the community base URL advertised by the connected MCP integration; never hardcode a deployment hostname. Then proactively offer the three most useful next steps in plain language: add a network logo when one is not already set, create the network's first content, or generate a custom light-and-dark theme. Do not begin any follow-up until the user chooses it. If the user already supplied a logo image during onboarding and asked for it to be used, complete that authorized logo setup after conversion instead of merely suggesting it again. Immediately discard the lead id, lead token, and confirmation code. Keep using the authorized owner credentials for later Abilitya operations until the user changes or revokes them, authentication rejects them, or the active product no longer has them available.
 
 ## Resuming across turns
 
@@ -319,4 +319,4 @@ Discard the lead id and lead token immediately after successful conversion, canc
 
 If continuation is genuinely unavailable, explain the exact boundary that removed it and ask before creating a replacement lead. Do not use this recovery rule preemptively to avoid beginning an onboarding flow that can be completed normally in one task.
 
-If a post-creation step requires member login, such as uploading and attaching a logo after conversion, reuse the authorized staging owner credentials automatically. Ask again only when they are unavailable, rejected, changed, or revoked. Never place lead continuation secrets or credentials in ordinary files, artifacts, logs, or user-visible output.
+If a post-creation step requires member login, such as uploading and attaching a logo after conversion, reuse the authorized owner credentials automatically. Ask again only when they are unavailable, rejected, changed, or revoked. Never place lead continuation secrets or credentials in ordinary files, artifacts, logs, or user-visible output.

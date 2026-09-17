@@ -1,6 +1,6 @@
 ---
 name: private-access
-description: Bundled Abilitya Assistant capability for configuring, converting, or auditing invite-only staging networks. Use when a user asks for a Private network, private access, membership-code or invitation-code registration, the dedicated Private authentication type, optional intro-page behavior for a private network, or verification of the fixed authentication gate.
+description: Bundled Abilitya Assistant capability for configuring, converting, or auditing invite-only networks. Use when a user asks for a Private network, private access, membership-code or invitation-code registration, the dedicated Private authentication type, optional intro-page behavior for a private network, or verification of the fixed authentication gate.
 ---
 
 # Abilitya Private Access Capability
@@ -11,7 +11,7 @@ Continue applying the parent skill's live-tool discovery, authentication, privac
 
 ## Workflow
 
-1. Resolve the staging network, authenticate the manager, and read the current customization.
+1. Resolve the network, authenticate the manager, and read the current customization.
 2. Discover and describe the live resolver, login, customization read, and network PATCH tools.
 3. PATCH the access model to Private. The expected effective configuration is `accessType: "private"`, `public: false`, and `auth.authType: "private"`. Send only fields required by the live schema; verify the coupled access/auth result from the write response.
 4. Preserve the Introduction Page state unless the user asks to change it. Private networks can use an intro, but it is optional.
@@ -29,4 +29,4 @@ Continue applying the parent skill's live-tool discovery, authentication, privac
 - Managers issue and manage membership codes separately, including bulk CSV import. Changing access type does not generate codes.
 - Do not create, reveal, redeem, or test membership codes unless explicitly requested.
 - Do not alter intro media, commercial bundles, prices, Content, theme, or unrelated settings.
-- Operate only on Abilitya staging and never expose credentials, tokens, raw ids, or raw API responses.
+- Operate only on Abilitya and never expose credentials, tokens, raw ids, or raw API responses.

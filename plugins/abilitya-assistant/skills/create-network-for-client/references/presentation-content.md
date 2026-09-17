@@ -75,6 +75,6 @@ For original network-owned community Events:
 - use the network as organizer and an online or generic community venue unless a specific physical venue is verified;
 - avoid named opponents, scores, external partners, performers, discounts, ticket inventory, physical addresses, or other unverified third-party claims;
 - write concise promotional copy exactly as a real community manager would;
-- never mention staging, presentations, showcases, demos, concepts, previews, simulations, fictional status, verification status, or any other internal workflow context;
+- never mention presentations, showcases, demos, concepts, previews, simulations, fictional status, verification status, or any other internal workflow context;
 - never add a disclaimer or explain why the Event was created;
 - include a cover and an appropriate generic or official client link when supported.
