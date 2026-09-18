@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create an Abilitya Network"
+  short_description: "Create the right network for your use case"
+  default_prompt: "Use $create-network to help me create and configure a new Abilitya network."
