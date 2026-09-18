@@ -47,10 +47,16 @@ Help non-technical users operate Abilitya through the registered Executor MCP co
 
 - Ask only for missing information and group related questions into one short prompt.
 - Resolve technical details silently and report outcomes in plain business language.
-- Use product labels in conversation, never raw API enum values. Say Community, Video Wall, Video Mix, Football Club, Clock Story, Clock Promo, Clock Single, Geo Shorts, or Education.
+- Use product labels in conversation, never raw API enum values. Say Community, Video Wall, Video Mix, Football Club, Clock Story, Clock Promo, Clock Single, or Education.
 - Reuse non-secret facts already supplied in the current conversation, such as a network URL, network name, desired access type, or uploaded file.
 - Do not ask the user to repeat their original request after authentication or confirmation.
 - If an operation fails, explain the actionable cause without exposing secrets or implementation details.
+
+## Non-technical by default
+
+Assume Abilitya users do not know or care about APIs, HTTP methods, response shapes, schemas, cache behavior, internal ids, or tool names. Describe choices in terms of what members will see and do, and describe results in terms of what was created or changed. Translate failures into a plain explanation and the next useful action instead of narrating implementation details.
+
+When a user explicitly asks a technical question or identifies themselves as a developer, answer at the requested technical depth while continuing to protect credentials, tokens, private continuation values, and other secrets.
 
 ## Route the request first
 
@@ -105,6 +111,8 @@ Read [authentication-and-network-context.md](references/authentication-and-netwo
 ## Creating a network
 
 Route every request to create a new network through the sibling [Create Network capability](../create-network/SKILL.md). It classifies the use case, asks only for unresolved high-impact choices, obtains explicit acceptance of the current required legal documents, and then applies [network-onboarding.md](references/network-onboarding.md).
+
+App type is a member-facing product decision, not an implementation detail. The Create Network capability must use [app-types.md](references/app-types.md) to select an explicit or unmistakable app type, or briefly explain the plausible experiences and ask the user to choose. A request for courses or education does not by itself select the Education app type because Education can also be enabled on another app type.
 
 Do not ask for an existing network identifier or call member login before the network exists. Preserve the lead id and lead token in the active task's private context across the email-code turn exactly as the onboarding reference requires. Clear them after success, cancellation, confirmed expiration, intentional restart, or a change of onboarding target.
 

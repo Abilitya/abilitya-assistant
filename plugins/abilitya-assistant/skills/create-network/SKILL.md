@@ -13,6 +13,7 @@ Read and follow:
 
 - `../abilitya-assistant/SKILL.md` for Executor discovery, privacy, confirmation, uploads, and shared behavior;
 - `../abilitya-assistant/references/network-onboarding.md` for the live lead, email-confirmation, contract-id, and conversion sequence.
+- `../abilitya-assistant/references/app-types.md` for app-type selection, member-facing experience differences, and allowed Content types.
 
 After creation, load only the specialist capability needed for the user's chosen setup:
 
@@ -36,12 +37,13 @@ Build an internal configuration brief from what the user already said. Classify 
 4. **Member participation:** consume-only, user-generated content, Social Feed, or both UGC and Social Feed.
 5. **Focused funnel:** whether the experience centers on one Story or Promotion reached from a QR code or external access point, and whether it needs a locked exit, lead collection, poll, quiz, digital raffle, or reward.
 6. **Identity and presentation:** name, audience, logo/assets, and whether a visual direction already exists.
+7. **App type:** the member-facing homepage and navigation experience. Select it only when explicit or unmistakable; otherwise explain the plausible choices briefly and ask the user to choose.
 
 Use the following signals as routing guidance, not as permission to add features the user did not request:
 
 | User intent or signal | Infer or clarify | Route after creation |
 | --- | --- | --- |
-| “My courses,” lessons, training, academy | Education-focused; clarify individual versus organization and desired access | Education capability |
+| “My courses,” lessons, training, academy | Education functionality; clarify Education Feed-first homepage versus another app type with Education enabled | Education capability |
 | Exclusive creator content, Patreon-like membership | Creator-oriented; clarify one-time versus recurring payment | Introduction Page plus Paywall or Subscription capability |
 | Invite-only, members only, membership code | Private access | Private Access capability |
 | Members should upload or publish | UGC enabled; confirm the exact member contribution model | Live network customization tools |
@@ -54,12 +56,15 @@ Do not assume that a course network must be paid, that a creator network must al
 
 ## Ask only for unresolved decisions
 
-When the request already identifies the purpose, acknowledge the inferred direction and ask only about choices that materially change the network. For example, “I need a network for my courses” establishes an Education focus; it does not establish whether the owner is an individual or organization, whether access is public or paid, or whether members can contribute.
+When the request already identifies the purpose, acknowledge the inferred direction and ask only about choices that materially change the network. For example, “I need a network for my courses” establishes Education functionality; it does not choose between the Education app type and another app type with Education enabled, establish whether the owner is an individual or organization, decide whether access is public or paid, or determine whether members can contribute.
+
+Follow the app-type reference before onboarding. When the app type is uncertain, briefly describe the plausible member experiences and ask the user to pick one. Show all supported choices only for a completely open-ended request. Do not expose internal values. Do not offer CoHR or Geo Shorts.
 
 For a vague request, group the missing questions into one concise prompt:
 
 - Is the network for you personally or for an organization or brand?
 - What should members primarily do there?
+- Which homepage experience should members land on? If that is unclear, briefly present the supported app types from the app-type reference.
 - Should access be public, invite-only, a one-time purchase, or a subscription?
 - Should members create content or use a Social Feed?
 - Do you already have a name, logo, and visual direction?
@@ -92,7 +97,7 @@ After intent and contract acceptance are settled:
 1. Collect only missing owner identity fields required by the live lead schema: first name, last name, email, and password. Offer an optional logo without making it a blocker.
 2. Begin the lead flow, preserve its private continuation, and request the six-digit email confirmation code.
 3. Confirm the same lead when the user supplies the code. Never create a duplicate lead merely because the workflow crossed a turn.
-4. Derive a concise network name, realistic initial interests, and the closest supported user-facing app type from the agreed purpose. Ask only when more than one materially different choice remains plausible.
+4. Derive a concise network name and realistic initial interests, then use the explicitly selected or unmistakable app type. If more than one materially different member experience remains plausible, ask before conversion. Never infer the Education app type from courses or lessons alone.
 5. Retrieve the two accepted contract ids and convert the lead using the live schema.
 6. Treat the successful conversion response as authoritative. Read the created network slug and construct its canonical link as `http://community.hashtag.be/<slug>`. Always return that clickable link; do not omit it merely because the API returned the slug without a complete URL. Do not expose the slug separately or expose raw ids or tokens.
 
@@ -102,7 +107,7 @@ Do not call existing-network member login before the network exists. After creat
 
 Network creation authorizes the agreed foundation, not every optional feature.
 
-- **Education:** create the Education-oriented foundation, then offer or perform module creation only when requested.
+- **Education:** when the user selects the Education app type, preserve its Education modules and Feed-as-homepage behavior. When the user selects another app type with Education enabled, preserve that app type's homepage and configure Education as a separate feature. Offer or perform module creation only when requested.
 - **Private:** configure Private access and authentication through the Private Access capability. Changing the access type does not invent membership codes.
 - **Paid:** establish the Introduction Page prerequisite, then configure either Purchasable or Subscribable access. Never collect payment-card data or complete a member purchase during setup.
 - **UGC:** set `isUserContentGenOn: true` only when the user wants member-created content and the live schema confirms the field and request shape.

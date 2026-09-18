@@ -5,7 +5,7 @@ Network creation is a lead-continuation flow, not an existing-network login flow
 ## Contents
 
 1. Discover tools through Executor
-2. Collect identity and network details
+2. Resolve the app type and collect identity and network details
 3. Preserve private continuation across the email-code turn
 4. Confirm the email
 5. Retrieve and apply explicitly accepted current contracts
@@ -45,24 +45,11 @@ Only after all five steps fail may the assistant report a live-catalog mismatch.
 
 Search again for each distinct capability—lead creation, lead update, email confirmation, contracts, soccer-team lookup, and final network creation. Use the exact returned path. If a capability is absent, report the live-catalog mismatch; do not guess a path or inspect a local OpenAPI file.
 
-## App type labels
+## Resolve the app type
 
-Use these labels with people. Translate to the API value only inside code:
+Read [app-types.md](app-types.md) before selecting or discussing an app type. Use an app type without asking only when the user explicitly names it or the requested member experience makes it unmistakable. Otherwise, briefly describe the plausible experiences and ask the user to choose before final conversion. Show all supported choices when the request is completely open-ended.
 
-| User-facing label | API value |
-| --- | --- |
-| Community | `community` |
-| Video Wall | `stories_wall` |
-| Video Mix | `video_mix` |
-| Football Club | `football_club` |
-| CoHR | `cohr` |
-| Clock Story | `clock_story` |
-| Clock Promo | `clock_promo` |
-| Clock Single | `clock_single` |
-| Geo Shorts | `geo_shorts` |
-| Education | `education` |
-
-Never ask a non-technical user to choose an enum such as `football_club`. Ask, for example, “Should this be a Community, Video Wall, Video Mix, or Football Club experience?”
+Keep internal values inside Executor calls. Do not offer or select CoHR or Geo Shorts. Do not infer the Education app type merely because the user asks for courses, lessons, training, or an academy; clarify whether they want the Feed-first Education experience or another app type with Education enabled.
 
 ## 1. Collect the lead identity
 
@@ -130,6 +117,7 @@ return {
 For `PATCH /leads/networks/{id}`, collect missing business details together:
 
 - community/network name;
+- agreed app type or the information needed to clarify it before conversion;
 - access type: `public` or `private`;
 - expected number of members;
 - description;
@@ -172,7 +160,7 @@ Keep `leadToken` even though email confirmation itself does not use it; final co
 
 It can also accept the internal app-type value, `interestCreatingMobileApp`, and, only for a Football Club, a provider `teamId`.
 
-Before this phase, the user must explicitly accept every document in the [Create Network contract section](../../create-network/SKILL.md#required-contract-acceptance). Do not infer acceptance. Use the current Contracts tools to retrieve the corresponding latest contract ids and submit them during network conversion. Never hardcode contract ids. Ask only for initial interests and the user-facing app type when they cannot be inferred. For a Football Club, resolve a valid provider team id; reject a team id for every other app type.
+Before this phase, the user must explicitly accept every document in the [Create Network contract section](../../create-network/SKILL.md#required-contract-acceptance). Do not infer acceptance. Use the current Contracts tools to retrieve the corresponding latest contract ids and submit them during network conversion. Never hardcode contract ids. Ask only for initial interests and the user-facing app type when they cannot be inferred. Resolve app-type ambiguity according to [app-types.md](app-types.md), including the Education app-type-versus-feature distinction. For a Football Club, resolve a valid provider team id; reject a team id for every other app type.
 
 ### Retrieve the accepted contracts
 
