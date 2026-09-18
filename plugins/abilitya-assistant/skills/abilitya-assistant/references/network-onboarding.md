@@ -174,23 +174,16 @@ It can also accept the internal app-type value, `interestCreatingMobileApp`, and
 
 Before this phase, the user must explicitly accept every document in the [Create Network contract section](../../create-network/SKILL.md#required-contract-acceptance). Do not infer acceptance. Use the current Contracts tools to retrieve the corresponding latest contract ids and submit them during network conversion. Never hardcode contract ids. Ask only for initial interests and the user-facing app type when they cannot be inferred. For a Football Club, resolve a valid provider team id; reject a team id for every other app type.
 
-### Retrieve contracts before the new network exists
+### Retrieve the accepted contracts
 
-The Contracts read requires an existing network as resolution context even though the network being onboarded does not exist yet. Use this deterministic bootstrap:
+Discover and inspect the Contracts read tool. Build `contractTypes` from exactly the contract types listed in the Create Network contract section, then request each current English contract separately by `type`. Do not add a contract type from memory or from an older workflow.
 
-1. Discover the public network resolver and resolve the known public network `super-app`.
-2. Use the returned numeric network id only as context for reading the current default contracts. This does not attach the lead to `super-app` and does not change the target network.
-3. Discover and inspect the Contracts read tool.
-4. Request each required English contract separately, passing both `networkId` and `type`. Do not omit `type`, use `0`, invent a future network id, or call member login.
-5. Build `contractTypes` from exactly the contract types listed in the Create Network contract section, then retrieve the current version of each. Do not add a contract type from memory or from an older workflow.
-6. Keep only each returned id, type, version, and language. Never return the contract HTML unless the user asks to read it.
-7. Pass the latest ids for the documents the user explicitly accepted to final creation.
+Keep only each returned id, type, version, and language. Never return the contract HTML unless the user asks to read it. Pass the latest ids for the documents the user explicitly accepted to final creation.
 
 ```ts
 const contracts = [];
 for (const type of contractTypes) {
   const result = await tools[contractsPath]({
-    networkId: bootstrapNetworkId,
     locale: "en",
     type,
   });
@@ -215,15 +208,6 @@ return {
   _continuation: { leadId, leadToken },
 };
 ```
-
-An HTTP 401 or `connection_rejected` from a Contracts read does not automatically mean the Executor integration needs reauthentication. Before asking the user to reconnect anything, verify that:
-
-- a real existing public network id was supplied;
-- `type` was supplied explicitly;
-- no stale `Authorization` value was supplied; and
-- the static Executor connection is otherwise working.
-
-Retry the corrected Contracts request. Ask for connection repair only when a correctly shaped read still fails and an unrelated public Abilitya read also proves the connection itself is broken.
 
 ### Football Club: resolve the team id
 

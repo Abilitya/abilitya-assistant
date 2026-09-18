@@ -88,7 +88,7 @@ Before an authenticated read or any write, ensure the active conversation or pri
 - their email address; and
 - their authorized password.
 
-Examples of valid identifiers are `1499`, `super-app`, `sport-dev.hashtag.be/super-app`, and `app.cagliaricalcio.com`.
+Examples of valid identifiers are `1499`, `abilitya-tech`, `community-staging.hashtag.be/abilitya-tech`, and `app.cagliaricalcio.com`.
 
 Resolve a URL to its slug or custom domain, then call the public network resolver with the id, slug, or domain. Use the returned numeric network id for login. Call `POST /v2/auth/login` with email, password, and that network id. If login returns `synchronizing_membership`, explain that the membership is being prepared and retry gently; do not report invalid credentials unless the API does.
 
