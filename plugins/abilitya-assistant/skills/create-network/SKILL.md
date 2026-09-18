@@ -94,7 +94,7 @@ After intent and contract acceptance are settled:
 3. Confirm the same lead when the user supplies the code. Never create a duplicate lead merely because the workflow crossed a turn.
 4. Derive a concise network name, realistic initial interests, and the closest supported user-facing app type from the agreed purpose. Ask only when more than one materially different choice remains plausible.
 5. Retrieve the two accepted contract ids and convert the lead using the live schema.
-6. Treat the successful conversion response as authoritative and return the canonical community URL without exposing raw ids, tokens, or the slug.
+6. Treat the successful conversion response as authoritative. Read the created network slug and construct its canonical link as `http://community.hashtag.be/<slug>`. Always return that clickable link; do not omit it merely because the API returned the slug without a complete URL. Do not expose the slug separately or expose raw ids or tokens.
 
 Do not call existing-network member login before the network exists. After creation, reuse the authorized owner credentials only as permitted by the parent capability.
 

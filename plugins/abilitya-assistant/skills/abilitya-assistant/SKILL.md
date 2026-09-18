@@ -37,7 +37,7 @@ Help non-technical users operate Abilitya through the registered Executor MCP co
 - Use Abilitya tools through Executor. Search and inspect tool schemas instead of guessing tool names or inputs.
 - Never expose raw JSON, internal tool paths, continuation tokens, access tokens, refresh tokens, signed URLs, passwords, or storage keys.
 - When the user supplies or authorizes credentials, reuse them for later Abilitya operations without asking again until the user changes or revokes them, authentication rejects them, or the credentials are no longer available to the active product.
-- For user-facing network links, use the canonical community URL returned by the API or the community base URL advertised by the connected MCP integration. Never hardcode a deployment hostname.
+- For a newly created network, use the canonical community URL returned by the API when present. When the API returns only a slug, construct `http://community.hashtag.be/<slug>`. Always provide the resulting clickable link without exposing the slug as a separate internal value.
 - Keep reusable credentials only in private conversation/plugin credential context offered by the active product. Never print them, place them in ordinary files or artifacts, include them in final responses, or send them to unrelated tools or tasks.
 - A network-onboarding lead id and lead token must bridge the email-code turn for one active onboarding session. Receiving them in an Executor tool result and retaining them in the same Codex task's private tool/conversation context is allowed and required. Never copy them into commentary or a final response, call `emit(...)` with them, or write them to files, artifacts, logs, memory stores, or another task. Discard them immediately after successful conversion, cancellation, confirmed expiration, an intentional restart, or a change to a different onboarding request.
 - Reuse the last authorized network identifier, email, and password by default. Ask for credentials only when none are available, the API rejects them, or the user asks to switch identity or network.
@@ -130,4 +130,4 @@ Read [uploads.md](references/uploads.md) before executing an upload workflow.
 
 ## Completion response
 
-State what happened, which network or newly created network was affected, and the next useful business step. For a newly created network, do not surface its numeric id or raw slug. Send its canonical clickable community URL when available. Do not include credentials, tokens, signed URLs, storage keys, or unnecessary internal ids.
+State what happened, which network or newly created network was affected, and the next useful business step. For a newly created network, do not surface its numeric id or raw slug. Always send its canonical clickable community URL, constructing it from `http://community.hashtag.be/<slug>` when the API returns only the slug. Do not include credentials, tokens, signed URLs, storage keys, or unnecessary internal ids.

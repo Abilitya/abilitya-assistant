@@ -8,10 +8,10 @@
   "repository": "https://github.com/Abilitya/abilitya-assistant",
   "skills": "./skills/",
   "interface": {
-    "displayName": "Abilitya Assistant (Staging)",
-    "composerIcon": "./assets/abilitya-icon-staging.png",
-    "logo": "./assets/abilitya-icon-staging.png",
-    "logoDark": "./assets/abilitya-icon-staging.png",
+    "displayName": "Abilitya Assistant (Prod)",
+    "composerIcon": "./assets/abilitya-icon.png",
+    "logo": "./assets/abilitya-icon.png",
+    "logoDark": "./assets/abilitya-icon.png",
     "shortDescription": "One assistant for every Abilitya workflow.",
     "longDescription": "Set up your own Abilitya network in minutes: Create stories, posts, promotions, education courses and more content, have GPT generate engaging light and dark themes for your network. All through one coherent Abilitya Assistant experience.",
     "developerName": "Abilitya",
@@ -31,7 +31,7 @@
     "defaultPrompt": [
       "Use Abilitya Assistant to manage my network.",
       "Create Content for my Abilitya network.",
-      "Prepare an Abilitya network for a client demo."
+      "Create and configure a new Abilitya network."
     ]
   },
   "mcpServers": "./.mcp.json"

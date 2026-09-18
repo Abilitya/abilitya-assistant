@@ -25,12 +25,12 @@ Run resolution, login, and dependent protected calls together whenever possible.
 ```ts
 const searches = await Promise.all([
   tools.search({
-    namespace: "abilitya_api_stg",
+    namespace: "abilitya_api",
     query: "resolve network id slug domain",
     limit: 8
   }),
   tools.search({
-    namespace: "abilitya_api_stg",
+    namespace: "abilitya_api",
     query: "login email password network",
     limit: 8
   })

@@ -1,7 +1,7 @@
 {
   "name": "abilitya",
   "interface": {
-    "displayName": "Abilitya Staging"
+    "displayName": "Abilitya Production"
   },
   "plugins": [
     {

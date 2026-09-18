@@ -19,7 +19,7 @@ Use Executor's live catalog rather than memorizing tool paths:
 
 ```ts
 const { items } = await tools.search({
-  namespace: "abilitya_api_stg",
+  namespace: "abilitya_api",
   query: "create network lead onboarding",
   limit: 12,
 });
@@ -31,7 +31,7 @@ const schema = await tools.describe.tool({ path: match.path });
 // Inspect schema.inputTypeScript before calling tools[match.path](input).
 ```
 
-The catalog-search tool used for soccer-team discovery is Executor's `tools.search`. Search it with `namespace: "abilitya_api_stg"` and queries such as `search soccer teams`, `football teams`, `team lookup`, `football provider`, and the required schema field `teamId`. If one query is weak, try singular/plural and provider-oriented variants, paginate while `hasMore` is true, deduplicate paths, and inspect candidate names and descriptions with `tools.describe.tool`. Do not declare the lookup missing after only the first query.
+The catalog-search tool used for soccer-team discovery is Executor's `tools.search`. Search it with `namespace: "abilitya_api"` and queries such as `search soccer teams`, `football teams`, `team lookup`, `football provider`, and the required schema field `teamId`. If one query is weak, try singular/plural and provider-oriented variants, paginate while `hasMore` is true, deduplicate paths, and inspect candidate names and descriptions with `tools.describe.tool`. Do not declare the lookup missing after only the first query.
 
 Before giving up on any onboarding capability, exhaust this search ladder:
 
@@ -231,7 +231,7 @@ Do not ask the user for a provider id when the club name is enough. Search Execu
 
 ```ts
 const searchResult = await tools.search({
-  namespace: "abilitya_api_stg",
+  namespace: "abilitya_api",
   query: "search soccer teams",
   limit: 20,
 });

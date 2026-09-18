@@ -37,10 +37,10 @@ Provide `networkIdOrSlug`, `email`, `password`, `mimeType`, `originalName`, and 
 
 ```ts
 const searches = await Promise.all([
-  tools.search({ namespace: "abilitya_api_stg", query: "resolve network id slug domain", limit: 8 }),
-  tools.search({ namespace: "abilitya_api_stg", query: "login email password network", limit: 8 }),
-  tools.search({ namespace: "abilitya_api_stg", query: "upload v2 initialize multipart", limit: 8 }),
-  tools.search({ namespace: "abilitya_api_stg", query: "upload v2 part signed url", limit: 8 })
+  tools.search({ namespace: "abilitya_api", query: "resolve network id slug domain", limit: 8 }),
+  tools.search({ namespace: "abilitya_api", query: "login email password network", limit: 8 }),
+  tools.search({ namespace: "abilitya_api", query: "upload v2 initialize multipart", limit: 8 }),
+  tools.search({ namespace: "abilitya_api", query: "upload v2 part signed url", limit: 8 })
 ])
 
 const findPath = (index, suffix) =>
@@ -149,9 +149,9 @@ Provide the retained `fileStorageUploadId`, `key`, `requestId`, and ordered `upl
 
 ```ts
 const searches = await Promise.all([
-  tools.search({ namespace: "abilitya_api_stg", query: "login email password network", limit: 8 }),
-  tools.search({ namespace: "abilitya_api_stg", query: "upload v2 complete multipart", limit: 8 }),
-  tools.search({ namespace: "abilitya_api_stg", query: "upload v2 request status upload id", limit: 8 })
+  tools.search({ namespace: "abilitya_api", query: "login email password network", limit: 8 }),
+  tools.search({ namespace: "abilitya_api", query: "upload v2 complete multipart", limit: 8 }),
+  tools.search({ namespace: "abilitya_api", query: "upload v2 request status upload id", limit: 8 })
 ])
 
 const loginPath = searches[0].items.find((item) => item.path.endsWith("postV2AuthLogin"))?.path
@@ -238,7 +238,7 @@ For a content post whose described create schema accepts `cover?: number`, conti
 
 ```ts
 const matches = await tools.search({
-  namespace: "abilitya_api_stg",
+  namespace: "abilitya_api",
   query: "create content post cover title description",
   limit: 12
 })

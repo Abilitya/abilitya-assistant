@@ -199,10 +199,10 @@ Discover first:
 
 ```ts
 const searches = await Promise.all([
-  tools.search({ namespace: "abilitya_api_stg", query: "resolve network slug domain", limit: 10 }),
-  tools.search({ namespace: "abilitya_api_stg", query: "login email password network", limit: 10 }),
-  tools.search({ namespace: "abilitya_api_stg", query: "read network customization theme", limit: 10 }),
-  tools.search({ namespace: "abilitya_api_stg", query: "patch network theme customization", limit: 10 }),
+  tools.search({ namespace: "abilitya_api", query: "resolve network slug domain", limit: 10 }),
+  tools.search({ namespace: "abilitya_api", query: "login email password network", limit: 10 }),
+  tools.search({ namespace: "abilitya_api", query: "read network customization theme", limit: 10 }),
+  tools.search({ namespace: "abilitya_api", query: "patch network theme customization", limit: 10 }),
 ]);
 ```
 
