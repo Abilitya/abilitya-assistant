@@ -58,6 +58,7 @@ Continue autonomously. Pause only for required user-only information such as a l
 - Generate realistic interests from the client's products, audience, geography, activities, competitions, and editorial themes.
 - Infer a public network unless the user requests another supported access model.
 - Choose a concise client-facing name suitable for a presentation; do not expose raw ids or slugs.
+- After creation, construct and return `http://community-staging.hashtag.be/<slug>` from the returned slug.
 
 ### Football clients
 
