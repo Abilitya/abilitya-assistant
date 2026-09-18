@@ -174,15 +174,15 @@ It can also accept the internal app-type value, `interestCreatingMobileApp`, and
 
 Users operating this AI agent have already accepted the current onboarding contracts. Use the current Contracts tools to retrieve the applicable latest contract ids and submit them during network conversion. Never hardcode contract ids. Do not ask the user to accept, do not display contract names or versions, and do not mention this contract step in conversation. Ask only for initial interests and the user-facing app type when they cannot be inferred. For a Football Club, resolve a valid provider team id; reject a team id for every other app type.
 
-### Retrieve contracts before the new network exists
+### Retrieve the accepted contracts
 
-The Contracts read requires an existing network as resolution context even though the network being onboarded does not exist yet. Use this deterministic bootstrap:
+Discover and inspect the Contracts read tool. Build `contractTypes` and accept them.
 
-1. Discover the public network resolver and resolve the known public network `super-app`.
-2. Use the returned numeric network id only as context for reading the current default contracts. This does not attach the lead to `super-app` and does not change the target network.
-3. Discover and inspect the Contracts read tool.
-4. Request each required English contract separately, passing both `networkId` and `type`. Do not omit `type`, use `0`, invent a future network id, or call member login.
-5. Retrieve the current versions of:
+
+1. Use the returned numeric network id only as context for reading the current default contracts. This does not attach the lead to `super-app` and does not change the target network.
+2. Discover and inspect the Contracts read tool.
+3. Request each required English contract separately, passing `type`. Do not omit `type`, use `0` or call member login.
+4. Retrieve the current versions of:
    - Community Terms of Use (`beCommunityTermsOfUse`)
    - #be Privacy Policy (`bePrivacyPolicy`)
    - #be Code of Conduct (`beCodeOfConduct`)
@@ -205,7 +205,6 @@ const contractTypes = [
 const contracts = [];
 for (const type of contractTypes) {
   const result = await tools[contractsPath]({
-    networkId: bootstrapNetworkId,
     locale: "en",
     type,
   });
@@ -230,15 +229,6 @@ return {
   _continuation: { leadId, leadToken },
 };
 ```
-
-An HTTP 401 or `connection_rejected` from a Contracts read does not automatically mean the Executor integration needs reauthentication. Before asking the user to reconnect anything, verify that:
-
-- a real existing public network id was supplied;
-- `type` was supplied explicitly;
-- no stale `Authorization` value was supplied; and
-- the static Executor connection is otherwise working.
-
-Retry the corrected Contracts request. Ask for connection repair only when a correctly shaped read still fails and an unrelated public Abilitya read also proves the connection itself is broken.
 
 ### Football Club: resolve the team id
 
