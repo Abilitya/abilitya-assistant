@@ -69,7 +69,18 @@ Choose exactly one primary workflow:
 
 ## Cached reads after writes
 
-Abilitya GET endpoints can return cached data for up to two minutes. After a successful create or update, treat the write response as authoritative. Verify requested fields directly from that response. Do not immediately refetch a GET, interpret its stale result as failure, retry the write, or block dependent work. Use a later GET only when the write response lacks the field needed for verification.
+Abilitya GET endpoints can return cached data for up to two minutes. After a successful create or update, treat the write response as authoritative and verify requested fields directly from it.
+
+When a genuinely fresh GET is needed—for example, when the write response lacks a required verification field or a workflow explicitly requires a post-write re-read—bypass the cache by adding a fresh timestamp through Executor's generic query-parameter field:
+
+```ts
+const result = await tools[path]({
+  ...input,
+  params: { exp: Date.now() },
+});
+```
+
+Merge `exp` with any existing `params` instead of replacing them. Do not pass `exp` as a top-level argument unless the described tool schema explicitly exposes it. Use this only for GET requests that require fresh data; do not retry a successful write because an earlier cached GET looked stale.
 
 ## Sub-agent authentication
 
